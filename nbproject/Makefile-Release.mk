@@ -35,11 +35,13 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/src/acciones.o \
 	${OBJECTDIR}/src/ingrediente.o \
 	${OBJECTDIR}/src/ingredientes.o \
+	${OBJECTDIR}/src/instrucciones.o \
 	${OBJECTDIR}/src/receta.o \
 	${OBJECTDIR}/src/recetas.o \
-	${OBJECTDIR}/src/test_ingredientes.o
+	${OBJECTDIR}/src/test.o
 
 
 # C Compiler Flags
@@ -60,11 +62,16 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/practica3ed
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/practica4ed
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/practica3ed: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/practica4ed: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/practica3ed ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/practica4ed ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/src/acciones.o: src/acciones.cpp
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/acciones.o src/acciones.cpp
 
 ${OBJECTDIR}/src/ingrediente.o: src/ingrediente.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
@@ -76,6 +83,11 @@ ${OBJECTDIR}/src/ingredientes.o: src/ingredientes.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ingredientes.o src/ingredientes.cpp
 
+${OBJECTDIR}/src/instrucciones.o: src/instrucciones.cpp
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/instrucciones.o src/instrucciones.cpp
+
 ${OBJECTDIR}/src/receta.o: src/receta.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
@@ -86,10 +98,10 @@ ${OBJECTDIR}/src/recetas.o: src/recetas.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/recetas.o src/recetas.cpp
 
-${OBJECTDIR}/src/test_ingredientes.o: src/test_ingredientes.cpp
+${OBJECTDIR}/src/test.o: src/test.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/test_ingredientes.o src/test_ingredientes.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/test.o src/test.cpp
 
 # Subprojects
 .build-subprojects:
