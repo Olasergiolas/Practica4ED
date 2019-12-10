@@ -17,30 +17,45 @@
 #include "arbolbinario.h"
 #include "acciones.h"
 #include <iostream>
+#include <stack>
 
 using namespace std;
 
 class Instrucciones{
 private:
     ArbolBinario<string> datos;
-    static Acciones acc;
+    
     
 public:
+    static Acciones acc;
     
-    Instrucciones(){
-        
+    Instrucciones(Acciones acciones){
+        acc = acciones;
     }
     
 };
 
 istream &operator>>(istream &is, Instrucciones &otro){
-    Acciones aux;
-    string accion;
+    string accion, ingrediente;
     unsigned char ariedad;
+    stack<ArbolBinario<string>> pila;
     
     while(is){
         getline(is, accion, ' ');
-        ariedad = aux.getAriedad(accion);
+        getline(is, ingrediente);   //Ver si funciona bien con palabras separadas
+        ariedad = otro.acc.getAriedad(accion);
+        
+        if (ariedad == '1'){
+            ArbolBinario<string> arbol(accion);
+            arbol.Insertar_Hi(ingrediente);
+            pila.push(arbol);
+        }
+        
+        else{
+            
+        }
+        
+        
     }
 }
 
