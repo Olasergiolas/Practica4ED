@@ -24,40 +24,17 @@ using namespace std;
 class Instrucciones{
 private:
     ArbolBinario<string> datos;
-    
+    Acciones acc;
     
 public:
-    static Acciones acc;
     
-    Instrucciones(Acciones acciones){
-        acc = acciones;
-    }
+    Instrucciones(Acciones acciones);
+    
+    Acciones& getAcciones();
     
 };
 
-istream &operator>>(istream &is, Instrucciones &otro){
-    string accion, ingrediente;
-    unsigned char ariedad;
-    stack<ArbolBinario<string>> pila;
-    
-    while(is){
-        getline(is, accion, ' ');
-        getline(is, ingrediente);   //Ver si funciona bien con palabras separadas
-        ariedad = otro.acc.getAriedad(accion);
-        
-        if (ariedad == '1'){
-            ArbolBinario<string> arbol(accion);
-            arbol.Insertar_Hi(ingrediente);
-            pila.push(arbol);
-        }
-        
-        else{
-            
-        }
-        
-        
-    }
-}
+istream &operator>>(istream &is, Instrucciones &otro);
 
 #endif /* INSTRUCCIONES_H */
 
