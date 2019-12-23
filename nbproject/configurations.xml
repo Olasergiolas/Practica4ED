@@ -30,6 +30,7 @@
         <itemPath>src/receta.cpp</itemPath>
         <itemPath>src/recetas.cpp</itemPath>
         <itemPath>src/test.cpp</itemPath>
+        <itemPath>src/testArboles.cpp</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -94,6 +95,8 @@
       </item>
       <item path="src/test.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="src/testArboles.cpp" ex="false" tool="1" flavor2="0">
+      </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
@@ -144,6 +147,8 @@
       <item path="src/recetas.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/test.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/testArboles.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>

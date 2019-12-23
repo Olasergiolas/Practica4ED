@@ -1,4 +1,5 @@
 #include "acciones.h"
+#include <cstring>
 
 using namespace std;
 
@@ -23,14 +24,16 @@ unsigned char Acciones::getAriedad(string accion){
 
 istream &operator>>(istream &is, Acciones &otro){
     string accion;
-    unsigned char el, endline;
+    unsigned char el;
     Acciones aux;
     
     while (is){
         getline(is, accion, ' ');       
         is >> el;     
         is.ignore();
-        aux.aniadirAccion(pair<string, unsigned char>(accion, el));
+        
+        if (strcmp(accion.c_str(), "\n") != 0)
+            aux.aniadirAccion(pair<string, unsigned char>(accion, el));
     }
     
     otro = aux;

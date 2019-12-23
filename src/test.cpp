@@ -23,7 +23,6 @@ using namespace std;
 int main(int argc, char** argv) {
 
     Acciones acciones;
-    Instrucciones instrucciones(acciones);
     
     ifstream f("./datos/Acciones.txt");
     
@@ -32,7 +31,8 @@ int main(int argc, char** argv) {
     }
     
     f >> acciones;
-    
+     
+    Instrucciones instrucciones(acciones);
     ifstream f2("./datos/instrucciones/R1m.txt");
     
     if (!f2){

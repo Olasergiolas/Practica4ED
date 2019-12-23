@@ -41,7 +41,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/instrucciones.o \
 	${OBJECTDIR}/src/receta.o \
 	${OBJECTDIR}/src/recetas.o \
-	${OBJECTDIR}/src/test.o
+	${OBJECTDIR}/src/test.o \
+	${OBJECTDIR}/src/testArboles.o
 
 
 # C Compiler Flags
@@ -102,6 +103,11 @@ ${OBJECTDIR}/src/test.o: src/test.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/test.o src/test.cpp
+
+${OBJECTDIR}/src/testArboles.o: src/testArboles.cpp
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/testArboles.o src/testArboles.cpp
 
 # Subprojects
 .build-subprojects:
