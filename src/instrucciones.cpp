@@ -20,14 +20,11 @@ istream &operator>>(istream &is, Instrucciones &otro){
     unsigned char ariedad;
     stack<ArbolBinario<string>> pila;
     
-    //La idea es conseguir ver si todos los ingredientes que necesito
-    //están en la línea, si no cojo de la pila.
-    
     while(is){    
         getline(is, linea);
         int contador = 0;
         
-        while(linea[contador] != ' ' && linea[contador] != '\n'){
+        while(linea[contador] != ' ' && linea[contador] != '\0'){
             accion += linea[contador];
             contador++;
         }
@@ -35,7 +32,7 @@ istream &operator>>(istream &is, Instrucciones &otro){
         ariedad = otro.getAcciones().getAriedad(accion);
         
         //Procedo a sacar dos elementos de la pila
-        if (linea[contador] == '\n' && ariedad == '2'){
+        if (linea[contador] == '\0' && ariedad == '2'){
             ArbolBinario<string> aux1 = pila.top();
             pila.pop();
             
@@ -43,15 +40,20 @@ istream &operator>>(istream &is, Instrucciones &otro){
             pila.pop();
             
             ArbolBinario<string> aux(accion);
-            aux.Insertar_Hi(aux.getRaiz(), aux1);
-            aux.Insertar_Hd(aux.getRaiz(), aux2);
+            aux.Insertar_Hd(aux.getRaiz(), aux1);
+            aux.Insertar_Hi(aux.getRaiz(), aux2);
             
             pila.push(aux);
         }
         
         //Saco un elemento
-        else if (linea[contador] == '\n' && ariedad == '1'){
+        else if (linea[contador] == '\0' && ariedad == '1'){
+            ArbolBinario<string> aux1 = pila.top();
+            pila.pop();
             
+            ArbolBinario<string> aux(accion);
+            aux.Insertar_Hi(aux.getRaiz(), aux1);
+            pila.push(aux);
         }
         
         //Leo el ingrediente que hay acontinuación (no puede haber más de un ingrediente por línea)
@@ -70,10 +72,32 @@ istream &operator>>(istream &is, Instrucciones &otro){
         
         //Leo el elemento a continuación y saco el otro de la pila
         else if (linea[contador] == ' ' && ariedad == '2'){
+            contador++;
+            while(linea[contador] != '\0'){
+                ingrediente += linea[contador];
+                contador++;
+            }
             
+            ArbolBinario<string> aux(accion);
+            aux.Insertar_Hd(aux.getRaiz(), ingrediente);
+            aux.Insertar_Hi(aux.getRaiz(), pila.top());
+            pila.pop();
+            
+            pila.push(aux);            
         }
+        
+        ingrediente = "";
+        accion = "";
+        contador = 0;
         
     }
     
+    otro.setDatos(pila.top());
+    pila.pop();
+    
     return is;
+}
+
+void Instrucciones::setDatos(ArbolBinario<string> &d){
+    datos = d;
 }

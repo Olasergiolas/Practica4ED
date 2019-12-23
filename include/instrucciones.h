@@ -32,9 +32,13 @@ public:
     
     Acciones& getAcciones();
     
+    void setDatos(ArbolBinario<string> &d);
+    
+    friend istream &operator>>(istream &is, Instrucciones &otro);
+    
 };
 
-istream &operator>>(istream &is, Instrucciones &otro);
+
 
 #endif /* INSTRUCCIONES_H */
 

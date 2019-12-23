@@ -40,6 +40,7 @@ int main(int argc, char** argv) {
     }
     
     f2 >> instrucciones;
+    cout << "fin";
         
 }
 
