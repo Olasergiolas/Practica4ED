@@ -75,6 +75,11 @@ void receta::establecerNutrientes(const ingredientes& ingrs)
     }
 }
 
+void receta::setInstrucciones(const Instrucciones& ins)
+{
+    inst = ins;
+}
+
 unsigned receta::ningredientes() const
 {
     unsigned contador = 0;

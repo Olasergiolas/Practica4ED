@@ -27,6 +27,7 @@ private:
     Acciones acc;
     
 public:
+    Instrucciones();
     
     Instrucciones(Acciones acciones);
     
@@ -35,6 +36,8 @@ public:
     void setDatos(ArbolBinario<string> &d);
     
     friend istream &operator>>(istream &is, Instrucciones &otro);
+    
+    friend ostream &operator<<(ostream &os, Instrucciones &otro);
     
 };
 

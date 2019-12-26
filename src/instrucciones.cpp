@@ -6,6 +6,8 @@
 
 #include "instrucciones.h"
 
+Instrucciones::Instrucciones(){
+}
 
 Instrucciones::Instrucciones(Acciones acciones){
     acc = acciones;
@@ -96,6 +98,21 @@ istream &operator>>(istream &is, Instrucciones &otro){
     pila.pop();
     
     return is;
+}
+
+ostream &operator<<(ostream &os, Instrucciones &otro)
+{
+    string last;
+    for (auto i = otro.datos.beginpostorden(); i != otro.datos.endpostorden(); ++i)
+    {
+        if (otro.acc.getAriedad(last) == 0 && i != otro.datos.beginpostorden())
+            os << *i << " " << last << endl;
+        else if (otro.acc.getAriedad(*i) != 0)
+            os << *i << endl;
+            
+        last = *i;
+    }
+    return os;
 }
 
 void Instrucciones::setDatos(ArbolBinario<string> &d){

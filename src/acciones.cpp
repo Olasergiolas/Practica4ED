@@ -17,9 +17,12 @@ Acciones& Acciones::operator= (const Acciones& otro){
 }
 
 unsigned char Acciones::getAriedad(string accion){
-        map<string, unsigned char>::iterator it = datos.find(accion);
-        
-        return it->second;    
+    unsigned char result = 0;
+    map<string, unsigned char>::iterator it = datos.find(accion);
+    if (it != datos.end())
+        result = it->second;
+
+    return result;    
 }
 
 istream &operator>>(istream &is, Acciones &otro){

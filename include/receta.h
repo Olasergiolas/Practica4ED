@@ -8,6 +8,7 @@
 #include <list>
 #include <iostream>
 #include "ingredientes.h"
+#include "instrucciones.h"
 using namespace std;
 
 /**
@@ -17,7 +18,8 @@ using namespace std;
  * una receta de cocina, formada por una lista de los ingredientes
  * necesarios por nombre y gramos, la cantidad de calorías, hidratos,
  * grasas, proteínas y fibra que aporta la receta en total, un código,
- * el número de plato y el nombe de la propia receta.
+ * el número de plato y el nombre de la propia receta. Además, contiene
+ * un conjunto de instrucciones necesarias para su elaboración.
  * 
  * Un ejemplo de su uso:
  * @include test_receta.cpp
@@ -48,6 +50,7 @@ private:
     string nombre;
     list<pair<string, unsigned> > ings;
     double calorias, hidratos, grasas, proteinas, fibra;
+    Instrucciones inst;
     
 public:
     /**
@@ -87,6 +90,12 @@ public:
      * aporta cada ingrediente
      */
     void establecerNutrientes(const ingredientes& ingrs);
+    
+    /**
+     * @brief Establece las instrucciones a seguir para elaborar la receta
+     * @param ins Instrucciones
+     */
+    void setInstrucciones(const Instrucciones& ins);
     
     /**
      * @brief Número de ingredientes de la instancia
