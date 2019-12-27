@@ -67,6 +67,19 @@ void recetas::establecerNutrientes(const ingredientes& ingrs)
         (*i).second.establecerNutrientes(ingrs);
 }
 
+void recetas::setInstrucciones(const Instrucciones& ins, string code)
+{
+    bool encontrado = false;
+    for (map<string, receta>::iterator i = datos.begin(); i != datos.end() && !encontrado; ++i)
+    {
+        if (i->first.compare(code) == 0)
+        {
+            encontrado = true;
+            i->second.setInstrucciones(ins);
+        }
+    }
+}
+
 void recetas::mostrarRecetas() const
 {
     receta aux;

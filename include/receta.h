@@ -98,6 +98,21 @@ public:
     void setInstrucciones(const Instrucciones& ins);
     
     /**
+     * @brief Escribe en pantalla cada ingrediente de la receta y su respectiva cantidad en gramos
+     */
+    void mostrarIngredientes() const;
+    
+    /**
+     * @brief Escribe en pantalla información nutricional sobre la receta
+     */
+    void mostrarInformacionNutricional() const;
+    
+    /**
+     * @brief Escribe en pantalla los pasos a seguir para elaborar la receta
+     */
+    void mostrarInstrucciones();
+    
+    /**
      * @brief Número de ingredientes de la instancia
      * @return unsigned con el número de ingredientes
      */

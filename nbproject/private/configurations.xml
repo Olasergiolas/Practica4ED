@@ -29,8 +29,10 @@
           <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" datos/ingredientes</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" datos/recetas.txt</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" datos/Acciones.txt datos/recetas.txt datos/ingredientes.txt datos/instrucciones/</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" datos/Acciones.txt datos/recetas.txt datos/ingredientes datos/instrucciones/</runcommandpicklistitem>
         </runcommandpicklist>
-        <runcommand>"${OUTPUT_PATH}" datos/recetas.txt</runcommand>
+        <runcommand>"${OUTPUT_PATH}" datos/Acciones.txt datos/recetas.txt datos/ingredientes datos/instrucciones/</runcommand>
         <rundir></rundir>
         <buildfirst>true</buildfirst>
         <terminal-type>0</terminal-type>

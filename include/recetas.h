@@ -91,6 +91,13 @@ public:
     void establecerNutrientes(const ingredientes& ingrs);
     
     /**
+     * @brief Establece las instrucciones para poder elaborar una receta concreta
+     * @param ins Instrucciones
+     * @param code Código de la receta a la que establecer instrucciones
+     */
+    void setInstrucciones(const Instrucciones& ins, string code);
+    
+    /**
      * @brief Muestra todas las recetas de la colección junto a sus
      * respectivos valores nutricionales
      */

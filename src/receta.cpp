@@ -37,6 +37,7 @@ receta::receta(const receta& og)
     grasas = og.grasas;
     proteinas = og.proteinas;
     fibra = og.fibra;
+    inst = og.inst;
 }
 
 receta::~receta(){
@@ -78,6 +79,27 @@ void receta::establecerNutrientes(const ingredientes& ingrs)
 void receta::setInstrucciones(const Instrucciones& ins)
 {
     inst = ins;
+}
+
+void receta::mostrarIngredientes() const
+{
+    for (receta::const_iterador i = begin(); i != end(); ++i)
+        cout << (*i).first << " " << (*i).second << endl;
+    
+}
+
+void receta::mostrarInformacionNutricional() const
+{
+    cout << "Calorias: " << calorias << endl;
+    cout << "Hidratos de Carbono: " << hidratos << endl;
+    cout << "Grasas: " << grasas << endl;
+    cout << "Proteinas: " << proteinas << endl;
+    cout << "Fibra: " << fibra << endl;
+}
+
+void receta::mostrarInstrucciones()
+{
+    cout << inst << endl;
 }
 
 unsigned receta::ningredientes() const
@@ -138,6 +160,7 @@ receta& receta::operator=(const receta& og)
     grasas = og.grasas;
     proteinas = og.proteinas;
     fibra = og.fibra;
+    inst = og.inst;
     return *this;
 }
 

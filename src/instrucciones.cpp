@@ -103,7 +103,7 @@ istream &operator>>(istream &is, Instrucciones &otro){
 ostream &operator<<(ostream &os, Instrucciones &otro)
 {
     string last;
-    for (auto i = otro.datos.beginpostorden(); i != otro.datos.endpostorden(); ++i)
+    for (ArbolBinario<string>::postorden_iterador i = otro.datos.beginpostorden(); i != otro.datos.endpostorden(); ++i)
     {
         if (otro.acc.getAriedad(last) == 0 && i != otro.datos.beginpostorden())
             os << *i << " " << last << endl;
