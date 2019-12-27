@@ -55,5 +55,18 @@ int main(int argc, char** argv) {
         rcs[code].mostrarInstrucciones();
     }
     
+    string code2;
+    cout << "\nIntroduzca el código de dos recetas para fusionar: \n";
+    cin >> code >> code2;
+    
+    if (rcs[code].getPlato() == 0)
+        cout << "No existe la receta con código " << code << endl;
+    else if (rcs[code2].getPlato() == 0)
+        cout << "No existe la receta con código " << code2 << endl;
+    else
+    {
+        
+    }
+    
     return 0;
 }
