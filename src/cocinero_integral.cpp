@@ -55,6 +55,7 @@ int main(int argc, char** argv) {
         rcs[code].mostrarInstrucciones();
     }
     
+    receta fusion;
     string code2;
     cout << "\nIntroduzca el código de dos recetas para fusionar: \n";
     cin >> code >> code2;
@@ -65,7 +66,15 @@ int main(int argc, char** argv) {
         cout << "No existe la receta con código " << code2 << endl;
     else
     {
+        fusion = rcs[code].fusionarRecetas(rcs[code2]);
         
+        cout << "\nCODE: " << fusion.getCode() << "\tRECETA: " << fusion.getNombre() << "\tPLATO: " << fusion.getPlato() << endl;
+        cout << "\nIngredientes: \n\n";
+        fusion.mostrarIngredientes();
+        cout << "\nInformación Nutricional: \n\n";
+        fusion.mostrarInformacionNutricional();
+        cout << "\nPasos a seguir: \n\n";
+        fusion.mostrarInstrucciones();
     }
     
     return 0;

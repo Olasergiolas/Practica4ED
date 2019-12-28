@@ -78,7 +78,9 @@ public:
     ~receta();
     
     /**
-     * @brief Añade un ingrediente a la receta
+     * @brief Primero busca si el ingrediente ya se encuentra en la receta; si
+     * lo encuentra, únicamente le suma la cantidad en gramos de lo que se iba a
+     * añadir; si no, lo añade a la receta
      * @param ingr Par de string para nombre del ingrediente y
      * de unsigned int para la cantidad en gramos de ese ingrediente
      */
@@ -96,6 +98,13 @@ public:
      * @param ins Instrucciones
      */
     void setInstrucciones(const Instrucciones& ins);
+    
+    /**
+     * @brief Fusiona dos recetas
+     * @param rc Receta a fusionar
+     * @return Receta fusión
+     */
+    receta fusionarRecetas(const receta& rc);
     
     /**
      * @brief Escribe en pantalla cada ingrediente de la receta y su respectiva cantidad en gramos

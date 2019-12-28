@@ -45,7 +45,17 @@ receta::~receta(){
 
 void receta::aniadirIngrediente(pair<string,unsigned> ingr)
 {
-    ings.insert(end().it, ingr);
+    bool encontrado = false;
+    for (list<pair<string, unsigned> >::iterator i = ings.begin(); i != ings.end() && !encontrado; ++i)
+    {
+        if (i->first.compare(ingr.first) == 0)
+        {
+            encontrado = true;
+            i->second += ingr.second;
+        }
+    }
+    if (!encontrado)
+        ings.insert(end().it, ingr);
 }
 
 void receta::establecerNutrientes(const ingredientes& ingrs)
@@ -100,6 +110,38 @@ void receta::mostrarInformacionNutricional() const
 void receta::mostrarInstrucciones()
 {
     cout << inst << endl;
+}
+
+receta receta::fusionarRecetas(const receta& rc)
+{
+    receta result;
+    string cod = "F_";
+    cod.append(code);
+    cod.append("_");
+    cod.append(rc.code);
+    
+    string name = "Fusion ";
+    name.append(nombre);
+    name.append(" y ");
+    name.append(rc.nombre);
+    
+    result.code = cod;
+    result.nombre = name;
+    result.plato = plato;
+    result.calorias = calorias + rc.calorias;
+    result.hidratos = hidratos + rc.hidratos;
+    result.grasas = grasas + rc.grasas;
+    result.proteinas = proteinas + rc.proteinas;
+    result.fibra = fibra + rc.fibra;
+    
+    for (receta::const_iterador i = begin(); i != end(); ++i)
+        result.aniadirIngrediente(*i);
+    for (receta::const_iterador i = rc.begin(); i != rc.end(); ++i)
+        result.aniadirIngrediente(*i);
+    
+    result.inst = inst.fusionarInstrucciones(rc.inst);
+    
+    return result;
 }
 
 unsigned receta::ningredientes() const

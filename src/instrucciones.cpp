@@ -100,6 +100,25 @@ istream &operator>>(istream &is, Instrucciones &otro){
     return is;
 }
 
+Instrucciones Instrucciones::fusionarInstrucciones(Instrucciones otro)
+{
+    Instrucciones result;
+    ArbolBinario<string> tree("Acompañar");
+    tree.Insertar_Hi(tree.getRaiz(), datos);
+    tree.Insertar_Hd(tree.getRaiz(), otro.datos);
+    
+    result.acc = acc;
+    result.datos = tree;
+    return result;
+}
+
+Instrucciones& Instrucciones::operator=(const Instrucciones& og)
+{
+    datos = og.datos;
+    acc = og.acc;
+    return *this;
+}
+
 ostream &operator<<(ostream &os, Instrucciones &otro)
 {
     string last;

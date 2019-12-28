@@ -35,6 +35,10 @@ public:
     
     void setDatos(ArbolBinario<string> &d);
     
+    Instrucciones fusionarInstrucciones(Instrucciones otro);
+    
+    Instrucciones& operator=(const Instrucciones& og);
+    
     friend istream &operator>>(istream &is, Instrucciones &otro);
     
     friend ostream &operator<<(ostream &os, Instrucciones &otro);
