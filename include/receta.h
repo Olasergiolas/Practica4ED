@@ -87,6 +87,17 @@ public:
     void aniadirIngrediente(pair<string,unsigned> ingr);
     
     /**
+     * @brief Comprueba si todos los ingredientes de la receta se encuentran
+     * en el objeto de tipo ingredientes
+     * @param ingrs Colección de ingredientes donde comprobar cada ingrediente
+     * de la receta
+     * @return Devuelve únicamente true si todos se encuentran en la colección. Si
+     * no existe algún ingrediente en la colección, devuelve false y 
+     * el nombre de ese ingrediente
+     */
+    pair<bool,string> comprobarIngredientes(ingredientes& ingrs) const;
+    
+    /**
      * @brief Establece los nutrientes totales que aporta la receta
      * @param ingrs Objeto ingredientes de donde obtener los nutrientes que
      * aporta cada ingrediente

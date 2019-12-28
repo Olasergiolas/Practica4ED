@@ -95,7 +95,7 @@ const unsigned ingredientes::size() const
     return datos.size();
 }
 
-ingrediente ingredientes::get(string &n){
+ingrediente ingredientes::get(const string &n){
     ingrediente encontrado, aux;
     bool fin = false;
     

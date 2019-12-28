@@ -58,6 +58,23 @@ void receta::aniadirIngrediente(pair<string,unsigned> ingr)
         ings.insert(end().it, ingr);
 }
 
+pair<bool,string> receta::comprobarIngredientes(ingredientes& ingrs) const
+{
+    pair<bool,string> result;
+    bool aux = true;
+    for (receta::const_iterador i = begin(); i != end() && aux; ++i)
+    {
+        if (ingrs.get((*i).first).getNombre().compare("null") == 0)
+        {
+            aux = false;
+            result.second = (*i).first;
+        }
+    }
+    result.first = aux;
+    
+    return result;
+}
+
 void receta::establecerNutrientes(const ingredientes& ingrs)
 {
     string i_name, aux;
@@ -115,31 +132,34 @@ void receta::mostrarInstrucciones()
 receta receta::fusionarRecetas(const receta& rc)
 {
     receta result;
-    string cod = "F_";
-    cod.append(code);
-    cod.append("_");
-    cod.append(rc.code);
-    
-    string name = "Fusion ";
-    name.append(nombre);
-    name.append(" y ");
-    name.append(rc.nombre);
-    
-    result.code = cod;
-    result.nombre = name;
-    result.plato = plato;
-    result.calorias = calorias + rc.calorias;
-    result.hidratos = hidratos + rc.hidratos;
-    result.grasas = grasas + rc.grasas;
-    result.proteinas = proteinas + rc.proteinas;
-    result.fibra = fibra + rc.fibra;
-    
-    for (receta::const_iterador i = begin(); i != end(); ++i)
-        result.aniadirIngrediente(*i);
-    for (receta::const_iterador i = rc.begin(); i != rc.end(); ++i)
-        result.aniadirIngrediente(*i);
-    
-    result.inst = inst.fusionarInstrucciones(rc.inst);
+    if (plato == rc.plato)
+    {
+        string cod = "F_";
+        cod.append(code);
+        cod.append("_");
+        cod.append(rc.code);
+
+        string name = "Fusion ";
+        name.append(nombre);
+        name.append(" y ");
+        name.append(rc.nombre);
+
+        result.code = cod;
+        result.nombre = name;
+        result.plato = plato;
+        result.calorias = calorias + rc.calorias;
+        result.hidratos = hidratos + rc.hidratos;
+        result.grasas = grasas + rc.grasas;
+        result.proteinas = proteinas + rc.proteinas;
+        result.fibra = fibra + rc.fibra;
+
+        for (receta::const_iterador i = begin(); i != end(); ++i)
+            result.aniadirIngrediente(*i);
+        for (receta::const_iterador i = rc.begin(); i != rc.end(); ++i)
+            result.aniadirIngrediente(*i);
+
+        result.inst = inst.fusionarInstrucciones(rc.inst);
+    }
     
     return result;
 }

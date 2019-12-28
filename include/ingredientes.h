@@ -332,7 +332,7 @@ public:
      * @param string n Nombre del ingrediente
      * @return ingrediente con el nombre en cuestión
      */
-    ingrediente get(string &n);
+    ingrediente get(const string &n);
     
     /**
      * @brief Introduce en una nueva colección de ingredientes todos los que

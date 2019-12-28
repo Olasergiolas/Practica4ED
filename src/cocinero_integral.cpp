@@ -20,6 +20,7 @@ int main(int argc, char** argv) {
     a >> acc;
     r >> rcs;
     in >> ingrs;
+    Instrucciones instruc(acc);
     
     rcs.establecerNutrientes(ingrs);
     
@@ -31,7 +32,6 @@ int main(int argc, char** argv) {
         path.append((*i).first);
         path.append("m.txt");
         inst.open(path);
-        Instrucciones instruc(acc);
         inst >> instruc;
         rcs.setInstrucciones(instruc, (*i).first);
         inst.close();
@@ -64,6 +64,12 @@ int main(int argc, char** argv) {
         cout << "No existe la receta con código " << code << endl;
     else if (rcs[code2].getPlato() == 0)
         cout << "No existe la receta con código " << code2 << endl;
+    else if (!rcs[code].comprobarIngredientes(ingrs).first)
+        cout << "La receta " << code << " es errónea porque el ingrediente " << rcs[code].comprobarIngredientes(ingrs).second << " no existe en la colección.\n";
+    else if (!rcs[code2].comprobarIngredientes(ingrs).first)
+        cout << "La receta " << code2 << " es errónea porque el ingrediente " << rcs[code2].comprobarIngredientes(ingrs).second << " no existe en la colección.\n";
+    else if (rcs[code].getPlato() != rcs[code2].getPlato())
+        cout << "No se puede fusionar una receta de tipo " << rcs[code].getPlato() << " con otra de tipo " << rcs[code2].getPlato() << endl;
     else
     {
         fusion = rcs[code].fusionarRecetas(rcs[code2]);
