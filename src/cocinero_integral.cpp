@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
     if (argc != 5)
     {
         cout << "Se requieren cuatro argumentos.\n";
-        return -1;
+        exit(-1);
     }
     
     ifstream a(argv[1]), r(argv[2]), in(argv[3]), inst;

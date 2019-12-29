@@ -24,13 +24,12 @@
       <logicalFolder name="src" displayName="src" projectFiles="true">
         <itemPath>src/acciones.cpp</itemPath>
         <itemPath>include/arbolbinario.tpp</itemPath>
+        <itemPath>src/cocinero_integral.cpp</itemPath>
         <itemPath>src/ingrediente.cpp</itemPath>
         <itemPath>src/ingredientes.cpp</itemPath>
         <itemPath>src/instrucciones.cpp</itemPath>
         <itemPath>src/receta.cpp</itemPath>
         <itemPath>src/recetas.cpp</itemPath>
-        <itemPath>src/test.cpp</itemPath>
-        <itemPath>src/testArboles.cpp</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -83,6 +82,8 @@
       </item>
       <item path="src/acciones.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="src/cocinero_integral.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/ingrediente.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ingredientes.cpp" ex="false" tool="1" flavor2="0">
@@ -92,10 +93,6 @@
       <item path="src/receta.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/recetas.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/test.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/testArboles.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -136,6 +133,8 @@
       </item>
       <item path="src/acciones.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="src/cocinero_integral.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/ingrediente.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ingredientes.cpp" ex="false" tool="1" flavor2="0">
@@ -145,10 +144,6 @@
       <item path="src/receta.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/recetas.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/test.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/testArboles.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>

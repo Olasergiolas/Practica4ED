@@ -1,5 +1,7 @@
 #include "instrucciones.h"
 
+Acciones Instrucciones::acc = Acciones();
+
 Instrucciones::Instrucciones(){
 }
 

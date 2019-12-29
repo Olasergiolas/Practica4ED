@@ -35,7 +35,7 @@ private:
      * de acciones permitidas.
      */
     ArbolBinario<string> datos;
-    Acciones acc;
+    static Acciones acc;
     
 public:
     /**
